@@ -29,12 +29,12 @@ The UI is designed with **Bootstrap** to provide a modern, responsive experience
 
 ## Features  
 
-User authentication (Login & Logout)   
-Submit service requests with file attachments  
-Track requests and view their status  
-Staff dashboard to **manage and update** requests  
-Admin panel for complete management  
-Responsive **Bootstrap-based UI**  
+- User authentication (Login & Logout)   
+- Submit service requests with file attachments  
+- Track requests and view their status  
+- Staff dashboard to **manage and update** requests  
+- Admin panel for complete management  
+- Responsive **Bootstrap-based UI**  
 
 ---
 
