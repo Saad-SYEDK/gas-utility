@@ -107,10 +107,10 @@ Now open your browser and visit:
 ## Screenshots
 
 ### Home Page
-![Account Page](screenshots/accounts.png)
+![Account Page](screenshots/accounts.PNG)
 
 ### Submit Request Page
-![Login Page](screenshots/login.png)
+![Login Page](screenshots/login.PNG)
 
 ### Track Request Page
-![Track Status](screenshots/track.png)
+![Track Status](screenshots/track.PNG)
