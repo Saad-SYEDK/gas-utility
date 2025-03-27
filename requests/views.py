@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import ServiceRequest
 from .forms import ServiceRequestForm
 
@@ -35,3 +35,28 @@ def submit_request(request):
 def track_requests(request):
     user_requests = ServiceRequest.objects.filter(user=request.user)  # Filter by logged-in user
     return render(request, "services/track_requests.html", {"requests": user_requests})
+
+
+# Check if user is staff
+def is_staff(user):
+    return user.is_staff
+
+@login_required
+@user_passes_test(is_staff)
+def staff_dashboard(request):
+    requests = ServiceRequest.objects.all()
+    return render(request, "services/staff_dashboard.html", {"requests": requests})
+
+@login_required
+@user_passes_test(is_staff)
+def update_request_status(request, request_id):
+    request_obj = get_object_or_404(ServiceRequest, id=request_id)
+
+    if request.method == "POST":
+        new_status = request.POST.get("status")
+        if new_status:
+            request_obj.status = new_status
+            request_obj.save()
+            return redirect("staff_dashboard")
+
+    return render(request, "services/update_request.html", {"request_obj": request_obj})

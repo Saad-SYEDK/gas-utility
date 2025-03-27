@@ -21,7 +21,7 @@
                 <tr>
                     <td>{{ request.id }}</td>
                     <td>{{ request.request_type }}</td>
-                    <td>{{ request.description }}</td>
+                    <td>{{ request.details }}</td>
                     <td>
                         {% if request.attachment %}
                             <a href="{{ request.attachment.url }}" class="btn btn-sm btn-outline-primary" target="_blank">View</a>
@@ -31,7 +31,7 @@
                     </td>
                     <td>{{ request.created_at|date:"d M Y, H:i" }}</td>
                     <td>
-                        <span class="badge {% if request.status == 'Pending' %}bg-warning text-dark{% elif request.status == 'Approved' %}bg-success{% else %}bg-danger{% endif %}">
+                        <span class="badge {% if request.status == 'Pending' %}bg-warning text-dark{% elif request.status == 'Resolved' %}bg-success{% else %}bg-danger{% endif %}">
                             {{ request.status }}
                         </span>
                     </td>

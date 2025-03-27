@@ -21,6 +21,8 @@ urlpatterns = [
 
     # Include accounts URLs
     path("accounts/", include("accounts.urls")),
+    
+    path("requests/", include("requests.urls")),  # Include the `requests` app URL
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
