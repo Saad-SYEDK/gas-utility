@@ -19,6 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 MEDIA_URL = '/media/' #added
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #added
 
+LOGIN_REDIRECT_URL = "/"  # Redirect after login  - added
+LOGOUT_REDIRECT_URL = "/login/"  # Redirect after logout - added
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
