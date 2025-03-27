@@ -15,3 +15,9 @@ def signup_view(request):
     else:
         form = SignUpForm()
     return render(request, 'accounts/signup.html', {'form': form})
+
+# User Dashboard (to view requests)
+@login_required
+def user_dashboard(request):
+    requests = ServiceRequest.objects.filter(user=request.user)
+    return render(request, 'accounts/dashboard.html', {'requests': requests})
