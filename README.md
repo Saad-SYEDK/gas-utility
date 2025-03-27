@@ -47,6 +47,7 @@ Responsive **Bootstrap-based UI**
 
 ---
 
+
 ## Installation & Setup  
 
 ### 1. Clone the Repository  
@@ -54,3 +55,50 @@ Responsive **Bootstrap-based UI**
 ```bash
 git clone https://github.com/YOUR_GITHUB_USERNAME/Gas-Utility.git
 cd Gas-Utility
+```
+
+### 2. Create and Activate a Virtual Environment  
+
+For **Windows**:  
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+For **Mac/Linux**:  
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Dependencies  
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run Migrations  
+
+```bash
+python manage.py migrate
+```
+
+### 5. Create a Superuser (for admin and staff access)  
+
+```bash
+python manage.py createsuperuser
+```
+
+Follow the prompts to create a **username, email, and password**.
+
+### 6. Run the Development Server  
+
+```bash
+python manage.py runserver
+```
+
+Now open your browser and visit:  
+- **User Dashboard:** [http://127.0.0.1:8000/](http://127.0.0.1:8000/)  
+- **Admin Panel:** [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)  
