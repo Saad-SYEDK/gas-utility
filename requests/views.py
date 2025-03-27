@@ -10,21 +10,28 @@ def service_request_list(request):
     requests = ServiceRequest.objects.filter(user=request.user)
     return render(request, 'requests/service_requests.html', {'request': requests})
 
-
 def home(request):
-    return render(request, 'home.html')
+    if request.user.is_authenticated:
+        return render(request, 'home.html', {'user': request.user})  # Pass user data
+    return redirect("login")
 
+@login_required
 def submit_request(request):
     if request.method == "POST":
         form = ServiceRequestForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect("home")  # Redirect to home after submission
+            service_request = form.save(commit=False)
+            service_request.user = request.user  # Assign the logged-in user
+            service_request.save()
+            return redirect("track_requests")
     else:
         form = ServiceRequestForm()
-    return render(request, "submit_request.html", {"form": form})
+
+    return render(request, "services/submit_request.html", {"form": form})
 
 
+
+@login_required
 def track_requests(request):
-    requests = ServiceRequest.objects.all().order_by("-created_at")  # Show latest requests first
-    return render(request, "track_requests.html", {"requests": requests})
+    user_requests = ServiceRequest.objects.filter(user=request.user)  # Filter by logged-in user
+    return render(request, "services/track_requests.html", {"requests": user_requests})

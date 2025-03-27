@@ -1,22 +1,19 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class ServiceRequest(models.Model):
-    SERVICE_TYPES = [
-        ("gas_leak", "Gas Leak"),
-        ("low_pressure", "Low Pressure"),
-        ("meter_issue", "Meter Issue"),
-        ("billing", "Billing Issue"),
-        ("other", "Other"),
+    STATUS_CHOICES = [
+        ("Pending", "Pending"),
+        ("In Progress", "In Progress"),
+        ("Resolved", "Resolved"),
     ]
 
-    customer_name = models.CharField(max_length=100)
-    email = models.EmailField()
-    phone = models.CharField(max_length=15)
-    service_type = models.CharField(max_length=20, choices=SERVICE_TYPES)
-    description = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Link request to a user
+    request_type = models.CharField(max_length=255)
+    details = models.TextField()
     attachment = models.FileField(upload_to="attachments/", blank=True, null=True)
-    status = models.CharField(max_length=20, default="Pending")
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="Pending")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.customer_name} - {self.service_type} - {self.status}"
+        return f"{self.request_type} - {self.user.username} ({self.status})"

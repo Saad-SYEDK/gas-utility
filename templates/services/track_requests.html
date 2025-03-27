@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Track Your Requests</h2>
+
+    {% if requests %}
+        <table class="table table-hover table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Request Type</th>
+                    <th>Description</th>
+                    <th>Attachment</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in requests %}
+                <tr>
+                    <td>{{ request.id }}</td>
+                    <td>{{ request.request_type }}</td>
+                    <td>{{ request.description }}</td>
+                    <td>
+                        {% if request.attachment %}
+                            <a href="{{ request.attachment.url }}" class="btn btn-sm btn-outline-primary" target="_blank">View</a>
+                        {% else %}
+                            <span class="text-muted">No file</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ request.created_at|date:"d M Y, H:i" }}</td>
+                    <td>
+                        <span class="badge {% if request.status == 'Pending' %}bg-warning text-dark{% elif request.status == 'Approved' %}bg-success{% else %}bg-danger{% endif %}">
+                            {{ request.status }}
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">No requests found.</div>
+    {% endif %}
+</div>
+
+{% endblock %}
