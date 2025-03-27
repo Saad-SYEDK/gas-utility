@@ -10,3 +10,6 @@ def service_request_list(request):
     return render(request, 'requests/service_requests.html', {'request': requests})
 
 
+def home(request):
+    return render(request, 'home.html')
+
