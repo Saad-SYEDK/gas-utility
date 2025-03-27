@@ -102,3 +102,15 @@ python manage.py runserver
 Now open your browser and visit:  
 - **User Dashboard:** [http://127.0.0.1:8000/](http://127.0.0.1:8000/)  
 - **Admin Panel:** [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)  
+
+
+## Screenshots
+
+### Home Page
+![Account Page](screenshots/accounts.png)
+
+### Submit Request Page
+![Login Page](screenshots/login.png)
+
+### Track Request Page
+![Track Status](screenshots/track.png)
