@@ -11,9 +11,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+MEDIA_URL = '/media/' #added
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #added
 
 
 # Quick-start development settings - unsuitable for production
@@ -60,7 +64,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / "templates" #added manually
+            os.path.join(BASE_DIR, "templates")
             ],
         'APP_DIRS': True,
         'OPTIONS': {
