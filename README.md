@@ -120,3 +120,6 @@ Now open your browser and visit:
 
 ### Register Page
 ![Register Page](screenshots/register.PNG)
+
+### Manage Requests - ADMIN
+![Manage Requests - ADMIN](screenshots/mangage.PNG)
