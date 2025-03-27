@@ -106,11 +106,17 @@ Now open your browser and visit:
 
 ## Screenshots
 
-### Home Page
+### Account Page
 ![Account Page](screenshots/accounts.PNG)
 
-### Submit Request Page
+### Login Page
 ![Login Page](screenshots/login.PNG)
 
-### Track Request Page
+### Track Status Page
 ![Track Status](screenshots/track.PNG)
+
+### Home Page
+![Home Page](screenshots/home.PNG)
+
+### Register Page
+![Register Page](screenshots/register.PNG)
