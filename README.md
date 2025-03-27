@@ -7,12 +7,8 @@ A **Django-based web application** for managing gas utility service requests. Th
 - [Overview](#overview)  
 - [Features](#features)  
 - [Tech Stack](#tech-stack)  
-- [Installation & Setup](#installation--setup)  
-- [Running the Project](#running-the-project)  
-- [Usage Guide](#usage-guide)  
-- [Screenshots](#screenshots)  
-- [License](#license)  
-- [Contact](#contact)  
+- [Installation & Setup](#installation--setup)   
+- [Screenshots](#screenshots)   
 
 ---
 
